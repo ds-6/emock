@@ -69,3 +69,18 @@ app.get('/delete/:id', (req,res)=>{
         res.render('error/500');
     })
 })
+
+app.post('/submit-mock', (req,res)=>{
+    const pushMock = {$push:{attemptedMock:req.body}};
+    User.findOneAndUpdate({_id:req.user._id},pushMock)
+    .then(result=>{
+        const category = req.body.category;
+        const setNo = req.body.setNo;
+        const pushID = {$push:{attemptedBy:req.user._id}};
+        Mock.findOneAndUpdate({category:category,setNo:setNo},pushID)
+        .then(result=>{
+            console.log(result);
+        })
+        res.json({msg:'updated'});
+    })
+})

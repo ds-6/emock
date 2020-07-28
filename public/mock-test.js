@@ -165,3 +165,44 @@ function saveOption(val,option){
             loadQuestion(val);
         }
     }
+
+/*************Submit Mock********************/
+    function submitMock(){
+        var total = 0;
+        for(var i= 0;i<questionBody.length;i++){
+            const r_a = questionBody[i].r_a;
+            const q = questionBody[i].q_id;
+            for(var j=0;j<answerArr.length;j++){
+                const ans = answerArr[j].answer;
+                const qu= answerArr[j].q_id;
+                if(q==qu && r_a==ans){
+                    total++;
+                }
+            }
+        }
+        //fetch post
+
+        const attemptedOBJ= {
+            "category":_fn('.mock-header').dataset.category,
+            "setNo":_fn('.mock-header').dataset.setno,
+            "mockName": _fn('.mock-header').dataset.mockname,
+            "totalMarks": total,
+            "answerArr":answerArr
+        }
+
+        fetch('/submit-mock',{
+            method:'POST',
+            credentials: 'include',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(attemptedOBJ)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+    }

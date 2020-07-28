@@ -7,8 +7,7 @@ router.get('/:id',ensureLogin,(req,res)=>{
     const id = req.params.id;
     Mock.findOne({_id:id})
     .then(result=>{
-        const mock = result.questionBody;
-        res.render('mock-attempt',{user:req.user,mock});
+        res.render('mock-attempt',{user:req.user,mock:result});
     })
     .catch(err=>{
         res.render('error/500');
