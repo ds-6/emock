@@ -5,7 +5,7 @@
     background:#BBD42D;;
 }
 .padding-20{
-    padding:20px;
+    padding:0 20px;
 }
 
 /*******************************/
@@ -68,14 +68,19 @@
     font-weight: bold;
     padding: 0 10px;
 }
+#mock-area>.row>.s4{
+    margin-top:-10px;
+    border-radius: 25px 25px 0 0;
+}
 .buttons{
     overflow: hidden;
+    padding-top:30px;
 }
 .buttons .right button{
     margin-left:10px;
 }
 .btns-right{
-    height:250px;
+    height:230px;
     overflow-y: scroll;
     text-align: center;
 }
@@ -91,7 +96,7 @@
     color:#212121;
 }
 .btns-right button.gColor{
-    background: #13AA52;
+    background: #2BBBAD;
     color:#f3f3f3;
 }
 .btns-right button.iColor{
@@ -99,7 +104,7 @@
     color: #f3f3f3;
 }
 .btns-right button.oColor{
-    background: #ff4500;
+    background: #FB8C00;
     color:#f3f3f3;
 }
 .btn-description {
@@ -121,7 +126,4 @@
 }
 .test-profile img{
     margin-left:-10px;
-}
-#mock-area .s3{
-    border-radius: 25px 25px 0 0;
 }

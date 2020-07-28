@@ -24,7 +24,6 @@ questionBody.forEach(e=>{
 pos=0;
 loadQuestion(pos);
 function loadQuestion(val){
-    console.log('pressed')
     _fn('.qBody').innerHTML= `
     <h5>Question ${questionBody[val].q_id}:</h5>
     <div class="divider grey lighten-3"></div>
@@ -33,25 +32,25 @@ function loadQuestion(val){
         <p>
             <label for="a">
                 <input id="a" name="radio" type="radio" value="a" class="with-gap radio" />
-                <span>${questionBody[val].a}</span>
+                <span class="grey-text text-darken-3">${questionBody[val].a}</span>
             </label>
         </p>
         <p>
             <label for="b">
                 <input id="b" name="radio" type="radio" value="b" class="with-gap radio"  />
-                <span>${questionBody[val].b}</span>
+                <span class="grey-text text-darken-3">${questionBody[val].b}</span>
             </label>
         </p>
         <p>
             <label for="c">
                 <input id="c" name="radio" type="radio" value="c" class="with-gap radio" />
-                <span>${questionBody[val].c}</span>
+                <span class="grey-text text-darken-3">${questionBody[val].c}</span>
             </label>
         </p>
         <p>
             <label for="d">
                 <input id="d" name="radio" type="radio" value="d" class="with-gap radio" />
-                <span>${questionBody[val].d}</span>
+                <span class="grey-text text-darken-3">${questionBody[val].d}</span>
             </label>
         </p>
     </div>
