@@ -1,0 +1,59 @@
+<%- include('partials/header') %>
+<header class='mock-header test-bg-color'>
+    <div class="container">
+        <div class="timer right">
+            <div class="col s6 left grey-text text-darken-3">
+                Time Left:
+            </div>
+            <div class="col s6 grey darken-3 left white-text">
+                1:00 Hrs
+            </div>
+        </div>
+    </div>
+</header>
+<section class="section" id="mock-area" data-mock="<%= JSON.stringify(mock) %>">
+    <div class="row padding-20">
+        <div class="col s9 qBody">
+            
+        </div>        
+        <div class="col s3 grey lighten-1">
+            <div class="row test-bg-color test-profile">
+                <div class="col s4">
+                    <img class="circle" src="<%= user.thumbnail %>" alt="" width="50">
+                </div>
+                <div class="col s8">
+                    <p><%= user.username %></p>
+                </div>
+            </div>
+            <div class="row btns-right">
+                
+            </div>
+            <div class="divider grey"></div>
+            <div class="row btn-description">
+                <div class="col s3">
+                    <button class="btn main-color"></button>
+                    <p>Attempted</p>
+                </div>
+                <div class="col s3">
+                    <button class="btn indigo darken-3"></button>
+                    <p>Attempted & Tagged</p>
+                </div>
+                <div class="col s3">
+                    <button class="btn orange darken-1"></button>
+                    <p>Tagged</p>
+                </div>
+                <div class="col s3">
+                    <button class="btn white"></button>
+                    <p>Unattempted</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <button class="btn test-bg-color grey-text text-darken-3" style="font-weight: bold;" onclick="submitMock()">Submit Test</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="/mock-test.js"></script>
+<%- include('partials/footer') %>

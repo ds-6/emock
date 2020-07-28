@@ -1,0 +1,127 @@
+.main-color{
+    background:#13AA52;
+}
+.test-bg-color{
+    background:#BBD42D;;
+}
+.padding-20{
+    padding:20px;
+}
+
+/*******************************/
+
+.btn-wide{
+    padding-top: 20px;
+}
+.btn-wide a{
+    width:100%;
+}
+.btn-wide a i{
+    font-size: 16px;
+    border-right: 1px solid rgba(0,0,0,.07);
+    padding-right: 10px;
+}
+#login-wrapper .container{
+    width: 350px;
+    margin:50px auto;
+}
+
+.padding-left{
+    padding-left: 320px;
+}
+/*******Dashboard********/
+#dashboard-content .card-content{
+    position: relative;
+}
+#dashboard-content .card-content .cat{
+    position: absolute;
+    top: 10px;
+    right: -1px;
+    height: 16px;
+    line-height: 6px !important;
+    font-size: 12px;
+    padding:5px;
+    display: inline-block;
+    background:#455a64;
+}
+#dashboard-content .card-content .cat:before{
+    content: "";
+    display: inline-block;
+    border-top: 8px solid #455a64;
+    border-bottom: 8px solid #455a64;
+    border-left: 8px solid transparent;
+    position: absolute;
+    left: -7px;
+    top: 0px;
+    
+}
+/*******Mock Header********/
+.mock-header{
+    height:50px;    
+}
+.mock-header .timer,.mock-header .container{
+    overflow:hidden;
+}
+.mock-header .timer div{
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    padding: 0 10px;
+}
+.buttons{
+    overflow: hidden;
+}
+.buttons .right button{
+    margin-left:10px;
+}
+.btns-right{
+    height:250px;
+    overflow-y: scroll;
+    text-align: center;
+}
+.btns-right button{
+    width: 35px;
+    height:35px;
+    line-height: 35px;
+    display: inline-block;
+    margin:10px 10px 0 0;
+    text-align: center;
+    padding:0;
+    background: #f4f4f4;
+    color:#212121;
+}
+.btns-right button.gColor{
+    background: #13AA52;
+    color:#f3f3f3;
+}
+.btns-right button.iColor{
+    background:#283593;
+    color: #f3f3f3;
+}
+.btns-right button.oColor{
+    background: #ff4500;
+    color:#f3f3f3;
+}
+.btn-description {
+    margin-top: 10px;
+}
+.btn-description button{
+    width:25px;
+    height: 25px;
+}
+.btn-description p{
+    font-size: 11px;
+    text-overflow: ellipsis;
+}
+.test-profile{
+    border-radius:25px;
+    height: 50px;
+    box-shadow: 0 0 5px rgba(0,0,0,.07);
+    font-weight: bold;
+}
+.test-profile img{
+    margin-left:-10px;
+}
+#mock-area .s3{
+    border-radius: 25px 25px 0 0;
+}

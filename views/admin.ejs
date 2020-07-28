@@ -1,0 +1,132 @@
+<%- include('partials/header') %>
+<header class="padding-left">
+  <div>
+    <ul id="slide-out" class="sidenav sidenav-fixed">
+      <li><div class="user-view">
+        <div class="background">
+          <img src="/photos/bg.JPG">
+        </div>
+        <a href="#user"><img class="circle" src="<%= user.thumbnail%>"></a>
+        <a href="#name"><span class="white-text name"><%= user.username %></span></a>
+        <a href="#email"><span class="white-text email">gossc.in@gmail.com</span></a>
+      </div></li>
+      <li><a href="/dashboard"><i class="material-icons">dashboard</i>Dashboard</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="section padding-left" id="admin-area">
+ <div class="row container">
+   <div class="col l4">
+     <div class="card main-color">
+       <div class="card-content">
+         <p class="white-text text-darken-3">
+           <i class="material-icons">account_circle</i>
+         </p>
+         <p class="white-text text-darken-3">
+           Total Users:
+         </p>
+         <p class="white-text text-darken-3">
+           1200
+         </p>
+       </div>
+     </div>
+   </div>
+   <div class="col l4">
+    <div class="card main-color">
+      <div class="card-content">
+        <p class="white-text text-darken-3">
+          <i class="material-icons">account_circle</i>
+        </p>
+        <p class="white-text text-darken-3">
+          Total Users:
+        </p>
+        <p class="white-text text-darken-3">
+          1200
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col l4">
+    <div class="card main-color">
+      <div class="card-content">
+        <p class="white-text text-darken-3">
+          <i class="material-icons">account_circle</i>
+        </p>
+        <p class="white-text text-darken-3">
+          Total Users:
+        </p>
+        <p class="white-text text-darken-3">
+          1200
+        </p>
+      </div>
+    </div>
+  </div>
+ </div>
+ <div class="row container">
+   <h5>Add Mock Sets</h5>
+    <form class="col s12" action="/add-mock" method="POST">
+      <div class="row">
+        <div class="input-field col s4">
+          <i class="material-icons prefix">label</i>
+          <input id="category" name='category' type="text" class="validate">
+          <label for="category">Category</label>
+        </div>
+        <div class="input-field col s4">
+          <i class="material-icons prefix">assignment</i>
+          <input id="mockName" name='mockName' type="text" class="validate">
+          <label for="mockName">Mock Name</label>
+        </div>
+        <div class="input-field col s4">
+          <i class="material-icons prefix">info</i>
+          <input id="setNo" name='setNo' type="text" class="validate">
+          <label for="setNo">Set No.</label>
+        </div>
+      </div>
+      <div class="row">       
+        <div class="input-field col s12">
+          <i class="material-icons prefix">description</i>
+          <textarea id="questionBody" name='questionBody' type="text" class="materialize-textarea"></textarea>
+          <label for="questionBody">Question Body</label>
+        </div>
+      </div>   
+      <button type="submit" class="btn btn-medium">Add Mock</button>   
+    </form>
+    
+ </div>
+</section>
+
+<section class="section padding-left" id="user-area">
+  <div class="row container">
+    <h4>Mock List</h4>
+    <div class="col l12">
+      <table class="striped">
+        <thead>
+          <tr>
+              <th>Set No.</th>
+              <th>Mock Name</th>
+              <th>Category</th>
+              <th>Delete</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% if(mocks) {%>
+            <% mocks.forEach(mock=>{ %>
+              <tr>
+                <td><%= mock.setNo %></td>
+                <td><%= mock.mockName %></td>
+                <td><%= mock.category %></td>
+                <td><a href="/delete/<%= mock._id%>" class="btn-floating btn-small red darken-2"><i class="material-icons" style="font-size: 20px;">delete_forever</i></a></td>
+              </tr>
+            <% })%>
+          <% } else{ %>
+            <tr>No Mocks Found.</tr>
+          <% } %>         
+         
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+  <%- include('partials/footer') %>
