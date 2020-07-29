@@ -127,3 +127,17 @@
 .test-profile img{
     margin-left:-10px;
 }
+
+/**********mock-attempted css*************/
+#question-area .tabs .tab a {
+    font-size: 18px;
+    color:#555;
+    font-weight: bold;
+    text-transform:capitalize ;
+}
+.tabs .indicator{
+    background:#13AA52;
+}
+.tabs .tab a.active,.tabs .tab a:focus.active{
+    background:#dcf0e8
+}

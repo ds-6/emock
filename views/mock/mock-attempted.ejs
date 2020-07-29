@@ -1,0 +1,226 @@
+<%- include('../partials/header') %>
+<header>
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">Performance</a></li>
+        <li><a href="/auth/logout">Logout</a></li>
+      </ul>
+    <nav class="main-color">
+        <div class="nav-wrapper container">
+          <a href="/" class="brand-logo">eMock</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/">Home</a></li>
+            <li><a href="/auth/logout">Logout</a></li>
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Hi, <%= user.username%><i class="material-icons right">arrow_drop_down</i></a></li>
+          </ul>
+        </div>
+      </nav>
+</header>
+
+<section class="section" id="result-area">
+    <div class="row container">
+        
+    </div>
+</section>
+
+<section class="section" id="question-area">
+    <div class="row container">
+        <div class="col s12">
+            <ul id="tabs-swipe-demo" class="tabs">
+                <li class="tab col s4"><a class="active" href="#test-swipe-1">Right</a></li>
+                <li class="tab col s4"><a  href="#test-swipe-2">Wrong</a></li>
+                <li class="tab col s4"><a href="#test-swipe-3">Unattempted</a></li>
+            </ul>
+                <div id="test-swipe-1" class="col s12">
+                    <% rA.forEach(e=>{ %>
+                        <h4>Question:<%= e.q_id %></h4>
+                        <p><%= e.q_data %></p>                        
+                        <% if (e.r_a=="a"){ %>
+                            <p class="green">
+                                <input type="radio" class="with-gap" disabled="disabled" checked/>
+                                <span class="grey-text text-darken-3"><%= e.a %></span>
+                            </p>    
+                        <% }else if(e.r_a!="a"){ %>
+                            <p>
+                                <input type="radio" class="with-gap" disabled="disabled" />
+                                <span class="grey-text text-darken-3"><%= e.a %></span>
+                            </p>    
+                        <% } %>
+
+                        <% if (e.r_a=="b"){ %>
+                            <p class="green">
+                                <input type="radio" class="with-gap" disabled="disabled" checked/>
+                                <span class="grey-text text-darken-3 "><%= e.b %></span>
+                            </p>    
+                        <% }else if(e.r_a!="b"){ %>
+                            <p>
+                                <input type="radio" class="with-gap" disabled="disabled" />
+                                <span class="grey-text text-darken-3"><%= e.b %></span>
+                            </p>    
+                        <% } %>
+
+                        <% if (e.r_a=="c"){ %>
+                            <p class="green">
+                                <input type="radio" class="with-gap" disabled="disabled" checked/>
+                                <span class="grey-text text-darken-3"><%= e.c %></span>
+                            </p>    
+                        <% }else if(e.r_a!="c"){ %>
+                            <p>
+                                <input type="radio" class="with-gap" disabled="disabled" />
+                                <span class="grey-text text-darken-3"><%= e.c %></span>
+                            </p>    
+                        <% } %>
+
+                        <% if (e.r_a=="d"){ %>
+                            <p class="green">
+                                <input type="radio" class="with-gap" disabled="disabled" checked/>
+                                <span class="grey-text text-darken-3"><%= e.d %></span>
+                            </p>    
+                        <% }else if(e.r_a!="d"){ %>
+                            <p>
+                                <input type="radio" class="with-gap" disabled="disabled" />
+                                <span class="grey-text text-darken-3"><%= e.d %></span>
+                            </p>    
+                        <% } %>
+                        
+                        <div class="divider"></div>
+                        
+                    <%  }) %>                  
+                </div>
+                <div id="test-swipe-2" class="col s12">
+                    <% wA.forEach(e=>{ %>
+                        <h4>Question:<%= e.q_id %></h4>
+                        <p><%= e.q_data %></p>                        
+                        <% if (e.r_a=="a"){ %>
+                            <p class="green">
+                                <input type="radio" class="with-gap" disabled="disabled"/>
+                                <span class="grey-text text-darken-3"><%= e.a %></span>
+                            </p> 
+                        <%} %>
+                        <% if(e.c_a=="a"){ %> 
+                            <p class="red">
+                                <input type="radio" class="with-gap" disabled="disabled" checked/>
+                                <span class="grey-text text-darken-3"><%= e.a %></span>
+                            </p>      
+                        <% }else if(e.r_a!="a" && e.c_a!="a"){ %>
+                            <p>
+                                <input type="radio" class="with-gap" disabled="disabled" />
+                                <span class="grey-text text-darken-3"><%= e.a %></span>
+                            </p>    
+                        <% } %>
+
+                        <% if (e.r_a=="b"){ %>
+                            <p class="green">
+                                <input type="radio" class="with-gap" disabled="disabled"/>
+                                <span class="grey-text text-darken-3"><%= e.b %></span>
+                            </p> 
+                        <%} %>
+                        <% if(e.c_a=="b"){ %> 
+                            <p class="red">
+                                <input type="radio" class="with-gap" disabled="disabled" checked/>
+                                <span class="grey-text text-darken-3"><%= e.b %></span>
+                            </p>      
+                        <% }else if(e.r_a!="b" && e.c_a!="b"){ %>
+                            <p>
+                                <input type="radio" class="with-gap" disabled="disabled" />
+                                <span class="grey-text text-darken-3"><%= e.b %></span>
+                            </p>    
+                        <% } %>
+
+                        <% if (e.r_a=="c"){ %>
+                            <p class="green">
+                                <input type="radio" class="with-gap" disabled="disabled"/>
+                                <span class="grey-text text-darken-3"><%= e.c %></span>
+                            </p> 
+                        <% } %>
+                        <% if(e.c_a=="c"){ %> 
+                            <p class="red">
+                                <input type="radio" class="with-gap" disabled="disabled" checked/>
+                                <span class="grey-text text-darken-3"><%= e.c %></span>
+                            </p>      
+                        <% }else if(e.r_a!="c" && e.c_a!="c"){ %>
+                            <p>
+                                <input type="radio" class="with-gap" disabled="disabled" />
+                                <span class="grey-text text-darken-3"><%= e.c %></span>
+                            </p>    
+                        <% } %>
+
+                        <% if (e.r_a=="d"){ %>
+                            <p class="green">
+                                <input type="radio" class="with-gap" disabled="disabled" />
+                                <span class="grey-text text-darken-3"><%= e.d %></span>
+                            </p> 
+                        <%} %>
+                        <% if(e.c_a=="d"){ %> 
+                            <p class="red">
+                                <input type="radio" class="with-gap" disabled="disabled" checked/>
+                                <span class="grey-text text-darken-3"><%= e.d %></span>
+                            </p>      
+                        <% }else if(e.r_a!="d" && e.c_a!="d"){ %>
+                            <p>
+                                <input type="radio" class="with-gap" disabled="disabled" />
+                                <span class="grey-text text-darken-3"><%= e.d %></span>
+                            </p>    
+                        <% } %>
+                        
+                        <div class="divider"></div>
+                    <%  }) %>    
+                </div>
+                <div id="test-swipe-3" class="col s12">
+                    <% uA.forEach(e=>{ %>
+                        <h4>Question:<%= e.q_id %></h4>
+                        <p><%= e.q_data %></p>
+                            <% if(e.r_a=="a"){ %>
+                                <p class="green">
+                                    <input type="radio" class="with-gap" disabled="disabled"/>
+                                    <span class="grey-text text-darken-3"><%= e.a %></span>
+                                </p> 
+                            <% } else if(e.r_a!="a"){ %>
+                                <p>
+                                    <input type="radio" class="with-gap" disabled="disabled"/>
+                                    <span class="grey-text text-darken-3"><%= e.a %></span>
+                                </p>
+                            <% } %>
+
+                            <% if(e.r_a=="b"){ %>
+                                <p class="green">
+                                    <input type="radio" class="with-gap" disabled="disabled"/>
+                                    <span class="grey-text text-darken-3"><%= e.b %></span>
+                                </p> 
+                            <% } else if(e.r_a!="b"){ %>
+                                <p>
+                                    <input type="radio" class="with-gap" disabled="disabled"/>
+                                    <span class="grey-text text-darken-3"><%= e.b %></span>
+                                </p>
+                            <% } %>
+
+                            <% if(e.r_a=="c"){ %>
+                                <p class="green">
+                                    <input type="radio" class="with-gap" disabled="disabled"/>
+                                    <span class="grey-text text-darken-3"><%= e.c %></span>
+                                </p> 
+                            <% } else if(e.r_a!="c"){ %>
+                                <p>
+                                    <input type="radio" class="with-gap" disabled="disabled"/>
+                                    <span class="grey-text text-darken-3"><%= e.c %></span>
+                                </p>
+                            <% } %>
+
+                            <% if(e.r_a=="d"){ %>
+                                <p class="green">
+                                    <input type="radio" class="with-gap" disabled="disabled"/>
+                                    <span class="grey-text text-darken-3"><%= e.d %></span>
+                                </p> 
+                            <% } else if(e.r_a!="d"){ %>
+                                <p>
+                                    <input type="radio" class="with-gap" disabled="disabled"/>
+                                    <span class="grey-text text-darken-3"><%= e.d %></span>
+                                </p>
+                            <% } %>
+                           
+                        <div class="divider"></div> 
+                     <%})%>          
+                </div>
+        </div>
+    </div>
+</section>
+<%- include('../partials/footer') %>
