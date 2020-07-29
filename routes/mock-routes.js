@@ -13,6 +13,7 @@ router.get('/:id',ensureLogin,(req,res)=>{
             User.findOne({_id:req.user.id,'attemptedMock.setNo':'10'},{attemptedMock:1})
             .then(result=>{
                 const answerArr = result.attemptedMock[0].answerArr;
+                const mock = result.attemptedMock[0];
                 let rightArr=[]; let wrongArr=[]; let unAttemptedArr=[];
                 function createArr(qID,i,ans){
                     const obj = {
@@ -46,7 +47,8 @@ router.get('/:id',ensureLogin,(req,res)=>{
                         } 
                     }               
                 }
-                res.render('mock/mock-attempted',{user:req.user,rA:rightArr,wA:wrongArr,uA:unAttemptedArr});
+                console.log(result)
+                res.render('mock/mock-attempted',{user:req.user,rA:rightArr,wA:wrongArr,uA:unAttemptedArr,mock:mock});
             })
             .catch(err=>{
                 console.log(err)

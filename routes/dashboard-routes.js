@@ -5,7 +5,13 @@ const Mock = require('../models/mock');
 router.get('/',ensureLogin, (req,res)=>{
     Mock.find()
     .then(result=>{
-        res.render('dashboard',{user:req.user,mocks:result})
+        result.forEach(e=>{
+            if(e.attemptedBy.includes(req.user._id)){
+                e.status="Attempted";
+            }
+           else e.status = "Unattempted" 
+        })
+        res.render('dashboard',{user:req.user,mocks:result});
     })
     .catch(err=>{
         res.render('error/404')

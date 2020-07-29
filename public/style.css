@@ -42,18 +42,30 @@
     font-size: 12px;
     padding:5px;
     display: inline-block;
-    background:#455a64;
+    background:#13AA52;
 }
 #dashboard-content .card-content .cat:before{
     content: "";
     display: inline-block;
-    border-top: 8px solid #455a64;
-    border-bottom: 8px solid #455a64;
+    border-top: 8px solid #13AA52;
+    border-bottom: 8px solid #13AA52;
     border-left: 8px solid transparent;
     position: absolute;
     left: -7px;
     top: 0px;
     
+}
+p.status{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 3px 5px;
+    display: inline-block;
+    border-radius:15px;
+    color: #f4f4f4;
+    font-size: 10px;
+    box-shadow: 0 0 3px rgba(0,0,0,.4);
+    text-transform: uppercase;
 }
 /*******Mock Header********/
 .mock-header{
@@ -131,7 +143,7 @@
 /**********mock-attempted css*************/
 #question-area .tabs .tab a {
     font-size: 18px;
-    color:#555;
+    color:#777;
     font-weight: bold;
     text-transform:capitalize ;
 }

@@ -25,11 +25,17 @@
                         <div class="card-content">
                             <h5 class="indigo-text text-darken-3"><%= mock.mockName%></h5>
                             <a class="btn cat" href="#"><%= mock.category%></a>
+                            <% if(mock.status=="Attempted"){ %>
+                                <p class="status green darken-3" ><%= mock.status%></p>
+                            <% } else{ %>
+                                <p class="status grey darken-1"><%= mock.status%></p>
+                            <% } %>
+                            
                             <p>Set No. <%= mock.setNo%></p>
                             <p>Question:90</p>
                             <p>Time:1Hr</p>
                             <p class="btn-wide">
-                                <a href="/take-mock/<%= mock._id%>" class="btn btn-small  blue-grey darken-2 waves-effect waves-light">Take Test</a>
+                                <a href="/take-mock/<%= mock._id%>" class="btn btn-small waves-effect waves-light">Take Test</a>
                             </p>                    
                         </div>
                     </div> 
