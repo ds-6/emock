@@ -5,8 +5,24 @@
 function _fnAll(id){
     return document.querySelectorAll(id);
 }
-/*************Render Mock********************/
 
+/*************Timer Setup********************/
+var time = 10; //in seconds
+var x = setInterval(()=>{
+    var m = Math.floor(time/60);
+    var s = time%60;
+    _fn('.timer-content').innerHTML = `${m}m : ${s}s`;
+    time--;
+    if(m==0&&s==0){
+        clearInterval(x);
+        _fn('.timer-content').innerHTML = `-- : --`;        
+        const instance = M.Modal.init(_fn('#modal1'), {dismissible: false});
+        instance.open();
+    }
+},1000) 
+
+
+/*************Render Mock********************/
 const questionBody = JSON.parse(_fn('#mock-area').dataset.mock);
 var qLength = questionBody.length;
 var pos =0;

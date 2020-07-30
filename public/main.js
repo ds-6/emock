@@ -10,4 +10,5 @@ document.addEventListener('DOMContentLoaded', function() {
    M.Dropdown.init(_fnAll('.dropdown-trigger'));
    M.Sidenav.init(_fnAll('.sidenav'));
    M.Tabs.init(_fnAll('.tabs'));
+   M.Modal.init(_fnAll('.modal'));
   });

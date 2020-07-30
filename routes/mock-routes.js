@@ -47,7 +47,6 @@ router.get('/:id',ensureLogin,(req,res)=>{
                         } 
                     }               
                 }
-                console.log(result)
                 res.render('mock/mock-attempted',{user:req.user,rA:rightArr,wA:wrongArr,uA:unAttemptedArr,mock:mock});
             })
             .catch(err=>{

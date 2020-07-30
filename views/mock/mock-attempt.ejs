@@ -5,8 +5,8 @@
             <div class="col s6 left grey-text text-darken-3">
                 Time Left:
             </div>
-            <div class="col s6 grey darken-3 left white-text">
-                1:00 Hrs
+            <div class="col s6 grey darken-3 left white-text timer-content">
+                -- : --
             </div>
         </div>
     </div>
@@ -55,5 +55,15 @@
         </div>
     </div>
 </section>
+<div id="modal1" class="modal">
+    <div class="modal-content center-align">
+      <h5 class="indigo-text text-darken-3">OOPS! Time is over.</h5>
+      <p>Please submit the mock.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="waves-effect btn btn-medium" onclick="submitMock()">Submit</a>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="/mock-test.js"></script>
 <%- include('../partials/footer') %>

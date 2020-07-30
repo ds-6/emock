@@ -80,6 +80,10 @@ p.status{
     font-weight: bold;
     padding: 0 10px;
 }
+.timer-content{
+    width: 90px;
+    text-align: center;
+}
 #mock-area>.row>.s4{
     margin-top:-10px;
     border-radius: 25px 25px 0 0;
@@ -140,6 +144,12 @@ p.status{
     margin-left:-10px;
 }
 
+.modal{
+    width:50%;
+}
+.modal .modal-footer{
+    text-align: center;
+}
 /**********mock-attempted css*************/
 #question-area .tabs .tab a {
     font-size: 18px;
@@ -152,4 +162,13 @@ p.status{
 }
 .tabs .tab a.active,.tabs .tab a:focus.active{
     background:#dcf0e8
+}
+
+
+
+
+@media only screen and (max-width: 992px){
+    .modal{
+        width:50%;
+    }
 }
