@@ -4,18 +4,16 @@ const User = require('../models/user');
 const Mock = require('../models/mock');
 
 router.get('/',ensureLogin,async (req,res)=>{
-    let a_Mock;
-    let result;
     try{
-        result = await Mock.find();
-        for(var i=0;i<result.length;i++){
-            if(result[i].attemptedBy.includes(req.user._id)){                    
-                result[i].status="Attempted";
-                a_Mock = await User.findOne({_id:req.user._id,"attemptedMock.setNo":result[i].setNo},{attemptedMock:1});
-                result[i].marks = a_Mock.attemptedMock[0].totalMarks;         
+        let result = await Mock.find();
+        for(let e of result){
+            if(e.attemptedBy.includes(req.user._id)){                    
+                e.status="Attempted";
+                let a_Mock = await User.findOne({_id:req.user._id,"attemptedMock.setNo":e.setNo},{attemptedMock:1});
+                e.marks = a_Mock.attemptedMock[0].totalMarks;       
             }
             else{
-                result[i].status = "Unattempted";
+                e.status = "Unattempted";
             }
         }
          res.render('dashboard',{user:req.user,mocks:result});

@@ -27,12 +27,12 @@
                             <a class="btn cat" href="#"><%= mock.category%></a>
                             <p>Set No. <%= mock.setNo%></p>
                             <p>Question:90</p>
-                            <% if(mock.status=="Attempted"){ %>
-                                <p class="status green darken-3" ><%= mock.status%></p>
-                                <p>Your Score: <%= mock.marks%></p>
+                            <% if(mock.status=="Unattempted"){ %>
+                                <div class="ribbon ribbon-u"><span>Unattempted</span></div>
+                                <p>Time:1Hr</p>                                
                             <% } else{ %>
-                                <p class="status grey darken-1"><%= mock.status%></p>
-                                <p>Time:1Hr</p>
+                                <div class="ribbon ribbon-a"><span>Attempted</span></div>
+                                <p>Your Score: <%= mock.marks%></p>
                             <% } %>                         
                             <p class="btn-wide">
                                 <a href="/take-mock/<%= mock._id%>" class="btn btn-small waves-effect waves-light">Take Test</a>
