@@ -5,7 +5,10 @@
 function _fnAll(id){
     return document.querySelectorAll(id);
 }
-
+/**********Mock right sidebar******************/
+_fn('.menu-ico').addEventListener('click',()=>{
+    _fn('.mock-btn-wrapper').classList.toggle('show');
+})
 /*************Timer Setup********************/
 var time = 3600; //in seconds
 var x = setInterval(()=>{    

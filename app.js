@@ -48,7 +48,7 @@ app.use('/take-mock',require('./routes/mock-routes'));
 app.get('/', ensureGuest, async ( req, res)=>{
      try{
         const mocks = await Mock.find();
-        res.render('index',{mocks});
+        res.render('index',{user:null,mocks});
      }catch(err){
          console.log(err);
          res.render('error/500');
@@ -85,7 +85,6 @@ app.post('/submit-mock', (req,res)=>{
         const pushID = {$push:{attemptedBy:req.user._id}};
         Mock.findOneAndUpdate({category:category,setNo:setNo},pushID)
         .then(result=>{
-            console.log(result);
         })
         res.json({msg:'updated'});
     })

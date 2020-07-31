@@ -47,6 +47,11 @@
     padding-left: 320px;
 }
 /*******Dashboard********/
+#slide-out.sidenav i.material-icons,#slide-out.sidenav i.fa{
+    margin-right:12px;
+    padding-right:0;
+    font-size: 24px;
+}
 sub.sub{
     font-size: 10px;
     color:#dfd9d9;
@@ -165,9 +170,29 @@ p.status{
     width: 90px;
     text-align: center;
 }
-#mock-area>.row>.s4{
-    margin-top:-10px;
+.menu-ico-wrapper{
+    position: relative;
+}
+.menu-ico-wrapper .menu-ico{
+    position: absolute;
+    right:0;
+    top:0;
+    display: none;
+    z-index: 99999;
+}
+.menu-ico-wrapper .menu-ico i{
+    font-size: 30px;
+}
+.mock-btn-wrapper{
     border-radius: 25px 25px 0 0;
+}
+.mock-btn-wrapper.show{
+    display: block;
+    position: absolute;
+    z-index: 999;
+    top:50px;
+    height: 100%;
+    animation: myAni .7s forwards;
 }
 .buttons{
     overflow: hidden;
@@ -249,10 +274,36 @@ p.status{
 }
 
 
-
+@keyframes myAni {
+    0%{
+        right:-350px;
+    }
+    100%{
+        right:0;
+        top:50px;
+    }
+}
 
 @media only screen and (max-width: 992px){
     .modal{
         width:50%;
+    }
+    .mock-btn-wrapper{
+        display: none;
+    }
+    .menu-ico-wrapper .menu-ico{
+        display: inline-block;
+    }
+    #mock-area{
+        min-height:510px;
+    }
+}
+@media only screen and (max-width: 500px){
+    #mock-area .buttons .left,#mock-area .buttons .right{
+        float:none;
+        width:100%;
+    }
+    .buttons.padding-20{
+        padding:0;
     }
 }

@@ -1,0 +1,49 @@
+<header>    
+    <nav class="main-color">
+        <div class="nav-wrapper container">
+          <a href="/" class="brand-logo">eMock<sub class="sub">by GOSSC.in</sub></a>
+          <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/">Home</a></li>
+            <% if(user){ %>
+                <li><a href="/auth/logout">Logout</a></li>
+                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Hi, <%= user.username%><i class="material-icons right">arrow_drop_down</i></a></li>
+            <% } else { %>
+                <li><a href="/auth/login">Login</a></li>
+            <% } %>
+            
+          </ul>
+        </div>
+      </nav>
+      <% if (user){ %>
+        <ul id="dropdown1" class="dropdown-content">
+            <li><a href="#">Performance</a></li>
+            <li><a href="/auth/logout">Logout</a></li>
+        </ul>
+      <% }%>
+      
+      <ul id="slide-out" class="sidenav">
+        <li>
+            <div class="user-view">
+                <div class="background">
+        
+                </div>
+                <% if (user){ %>
+                    <a href="#user"><img class="circle" src="<%= user.thumbnail %>"></a>
+                <a href="#name"><span class="white-text name"><%= user.username %></span></a>
+                <% }%>                
+            </div>
+        </li>
+        <li><a href="/"><i class="material-icons">home</i>Home</a></li>
+        <% if(user){ %>
+            <li><a href="#"><i class="material-icons">assignment</i>Performance</a></li>
+            <li><a href="/auth/logout"><i class="material-icons">login</i>Logout</a></li>
+        <% } else { %>
+            <li><a href="/auth/login"><i class="material-icons">login</i>Login</a></li>
+        <% }%>        
+        <li class="teal "><a href="#" class="white-text">Follow Us</a></li>
+        <li><a  href="https://www.facebook.com/gossc.in" target="_blank" ><i class="fa fa-facebook-square blue-text text-darken-3" aria-hidden="true"></i>Facebook Page</a></li>
+        <li><a  href="https://www.facebook.com/groups/gossc" target="_blank" ><i class="fa fa-facebook-square blue-text text-darken-3" aria-hidden="true"></i>Facebook Group</a></li>
+        <li><a  href="https://www.telegram.me/gossc"target="_blank" ><i class="fa fa-telegram blue-text" aria-hidden="true"></i>Telegram Channel</a></li>
+      </ul>
+</header>
