@@ -1,5 +1,5 @@
 .main-color{
-    background:#13AA52;
+    background:#468499;
 }
 .test-bg-color{
     background:#BBD42D;;
@@ -30,6 +30,14 @@
     padding-left: 320px;
 }
 /*******Dashboard********/
+sub.sub{
+    font-size: 10px;
+    color:#dfd9d9;
+    font-weight: bold;
+    position: relative;
+    top:10px;
+    left:-10px;
+}
 #dashboard-content .card-content{
     position: relative;
 }
