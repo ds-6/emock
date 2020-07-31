@@ -1,20 +1,5 @@
 <%- include('../partials/header') %>
-<header>
-    <ul id="dropdown1" class="dropdown-content">
-        <li><a href="#!">Performance</a></li>
-        <li><a href="/auth/logout">Logout</a></li>
-      </ul>
-    <nav class="main-color">
-        <div class="nav-wrapper container">
-          <a href="/" class="brand-logo">eMock<sub class="sub">by GOSSC.in</sub></a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/">Home</a></li>
-            <li><a href="/auth/logout">Logout</a></li>
-            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Hi, <%= user.username%><i class="material-icons right">arrow_drop_down</i></a></li>
-          </ul>
-        </div>
-      </nav>
-</header>
+<%- include('../partials/menu') %>
 
 <section class="section" id="result-area">
     <div class="row container">

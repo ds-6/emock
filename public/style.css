@@ -14,7 +14,7 @@
     border-radius:5px;
 }
 /*******************************/
-#bg-image .row{
+#bg-image{
     height:800px;
     background: url('photos/study.png') no-repeat;
     background-size: cover;
@@ -261,7 +261,7 @@ p.status{
     background: #f7f7f7;
 }
 #question-area .tabs .tab a {
-    font-size: 18px;
+    font-size: 16px;
     color:#777;
     font-weight: bold;
     text-transform:capitalize ;
@@ -299,6 +299,9 @@ p.status{
     }
 }
 @media only screen and (max-width: 500px){
+    #bg-image{
+        height: 350px;
+    }
     #mock-area .buttons .left,#mock-area .buttons .right{
         float:none;
         width:100%;
