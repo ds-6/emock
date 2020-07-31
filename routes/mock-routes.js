@@ -4,6 +4,16 @@ const {createArr}= require('../middleware/myFn')
 const Mock = require('../models/mock');
 const User = require('../models/user');
 
+router.get('/instructions/:id',ensureLogin ,async (req,res)=>{
+    const id = req.params.id;
+    try{
+        res.render('mock/instructions',{id});
+    }catch(err){
+        res.render('error/500');
+    }
+    
+})
+
 router.get('/:id', ensureLogin, async (req, res) => {
     try {
         const id = req.params.id;

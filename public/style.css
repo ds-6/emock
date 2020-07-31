@@ -7,7 +7,12 @@
 .padding-20{
     padding:0 20px;
 }
-
+.padding-h{
+    padding:7px 0;
+}
+.card{
+    border-radius:5px;
+}
 /*******************************/
 #bg-image{
     height:800px;
@@ -16,7 +21,7 @@
 }
 #login-wrapper{
     height: 800px;
-    background:linear-gradient(19deg, rgb(36, 127, 148) 0%, rgb(53, 19, 133) 100%);
+    background:#eee;
 }
 #login-wrapper .login-ico{
     font-size: 70px;
