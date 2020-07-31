@@ -9,7 +9,19 @@
 }
 
 /*******************************/
-
+#bg-image{
+    height:800px;
+    background: url('photos/study.png') no-repeat;
+    background-size: cover;
+}
+#login-wrapper{
+    height: 800px;
+    background:linear-gradient(19deg, rgb(36, 127, 148) 0%, rgb(53, 19, 133) 100%);
+}
+#login-wrapper .login-ico{
+    font-size: 70px;
+    color:#3a3b39
+}
 .btn-wide{
     padding-top: 20px;
 }
@@ -38,10 +50,10 @@ sub.sub{
     top:10px;
     left:-10px;
 }
-#dashboard-content .card-content{
+.card-content{
     position: relative;
 }
-#dashboard-content .card-content .cat{
+.card-content .cat{
     position: absolute;
     top: 10px;
     right: -1px;
@@ -50,13 +62,13 @@ sub.sub{
     font-size: 12px;
     padding:5px;
     display: inline-block;
-    background:#13AA52;
+    background:#468499
 }
-#dashboard-content .card-content .cat:before{
+.card-content .cat:before{
     content: "";
     display: inline-block;
-    border-top: 8px solid #13AA52;
-    border-bottom: 8px solid #13AA52;
+    border-top: 8px solid #468499;
+    border-bottom: 8px solid #468499;
     border-left: 8px solid transparent;
     position: absolute;
     left: -7px;
@@ -215,6 +227,9 @@ p.status{
     text-align: center;
 }
 /**********mock-attempted css*************/
+#result-area{
+    background: #f7f7f7;
+}
 #question-area .tabs .tab a {
     font-size: 18px;
     color:#777;

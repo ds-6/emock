@@ -45,8 +45,14 @@ app.use('/auth',require('./routes/auth-routes'));
 app.use('/dashboard',require('./routes/dashboard-routes'));
 app.use('/take-mock',require('./routes/mock-routes'));
 
-app.get('/', ensureGuest,(req, res)=>{
-    res.render('index')
+app.get('/', ensureGuest, async ( req, res)=>{
+     try{
+        const mocks = await Mock.find();
+        res.render('index',{mocks});
+     }catch(err){
+         console.log(err);
+         res.render('error/500');
+     }
 })
 
 

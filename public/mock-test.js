@@ -7,8 +7,8 @@ function _fnAll(id){
 }
 
 /*************Timer Setup********************/
-var time = 10; //in seconds
-var x = setInterval(()=>{
+var time = 3600; //in seconds
+var x = setInterval(()=>{    
     var m = Math.floor(time/60);
     var s = time%60;
     _fn('.timer-content').innerHTML = `${m}m : ${s}s`;
@@ -18,6 +18,9 @@ var x = setInterval(()=>{
         _fn('.timer-content').innerHTML = `-- : --`;        
         const instance = M.Modal.init(_fn('#modal1'), {dismissible: false});
         instance.open();
+    }
+    if(m==15&&s==0){
+        M.toast({html: 'Last 15 minutes left!',inDuration:500});
     }
 },1000) 
 

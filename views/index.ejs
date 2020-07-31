@@ -10,45 +10,31 @@
         </div>
       </nav>
 </header>
-
+<section class="section" id="bg-image">
+</section>
 <section class="section" id="main">
     <div class="row container">
-        <div class="col s12 l4">
-            <div class="card">
-                <div class="card-content">
-                    <h4 class="indigo-text text-darken-3">HSSC Clerk 2020</h4>
-                    <p class="flow-text">Question:90</p>
-                    <p class="flow-text">Time:1Hr</p>
-                    <p class="btn-wide">
-                        <a href="#" class="btn btn-small waves-effect waves-light">Take Test</a>
-                    </p>                    
+        <% if(mocks){ %>
+            <% mocks.forEach(mock=>{ %>
+                <div class="col s6 l3">
+                    <div class="card">
+                        <div class="card-content">
+                            <h5 class="indigo-text text-darken-3"><%= mock.mockName%></h5>
+                            <a class="btn cat" href="#"><%= mock.category%></a>
+                            <p>Set No. <%= mock.setNo%></p>
+                            <p>Question:90</p>
+                            <div class="ribbon ribbon-u"><span>Unattempted</span></div>
+                            <p>Time:1Hr</p>                                                        
+                            <p class="btn-wide">
+                                <a href="/auth/login" class="btn btn-small waves-effect waves-light">Take Test</a>
+                            </p>                    
+                        </div>
+                    </div> 
                 </div>
-            </div> 
-        </div>
-        <div class="col s12 l4">
-            <div class="card">
-                <div class="card-content">
-                    <h4 class="indigo-text text-darken-3">HSSC Clerk 2020</h4>
-                    <p class="flow-text">Question:90</p>
-                    <p class="flow-text">Time:1Hr</p>
-                    <p class="btn-wide">
-                        <a href="#" class="btn btn-small waves-effect waves-light">Take Test</a>
-                    </p>
-                </div>
-            </div>            
-        </div>
-        <div class="col s12 l4">
-            <div class="card">
-                <div class="card-content">
-                    <h4 class="indigo-text text-darken-3">HSSC Clerk 2020</h4>
-                    <p class="flow-text">Question:90</p>
-                    <p class="flow-text">Time:1Hr</p>
-                    <p class="btn-wide">
-                        <a href="#" class="btn btn-small waves-effect waves-light">Take Test</a>
-                    </p>
-                </div>
-            </div> 
-        </div>
+            <% }) %>     
+        <%} else{ %>
+            <h4>Sorry! No Mocks found.</h4>
+        <% } %>
     </div>
 </section>
 <%- include('partials/footer') %>
