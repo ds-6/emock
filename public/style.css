@@ -176,12 +176,19 @@ p.status{
 .menu-ico-wrapper .menu-ico{
     position: absolute;
     right:0;
-    top:-18px;
+    top:-18px;    
+    transition: transform .5s ease;
     display: none;
     z-index: 99999;
 }
 .menu-ico-wrapper .menu-ico i{
+    transition: transform .5s ease;
+    transform: rotate(-90deg);
     font-size: 35px;
+}
+.menu-ico-wrapper .menu-ico i.rotate{
+    transition: transform .5s ease;
+    transform: rotate(90deg);
 }
 .mock-btn-wrapper{
     border-radius: 5px 0 0 5px;

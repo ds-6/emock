@@ -8,6 +8,7 @@ function _fnAll(id){
 /**********Mock right sidebar******************/
 _fn('.menu-ico').addEventListener('click',()=>{
     _fn('.mock-btn-wrapper').classList.toggle('show');
+    _fn('.menu-ico i').classList.toggle('rotate');
 })
 /*************Timer Setup********************/
 var time = 3600; //in seconds
