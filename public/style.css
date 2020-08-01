@@ -209,6 +209,7 @@ p.status{
     margin-left:10px;
 }
 .btns-right{
+    padding:5px;
     height:230px;
     overflow-y: scroll;
     text-align: center;

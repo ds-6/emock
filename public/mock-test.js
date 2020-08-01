@@ -15,7 +15,8 @@ var time = 3600; //in seconds
 var x = setInterval(()=>{    
     var m = Math.floor(time/60);
     var s = time%60;
-    _fn('.timer-content').innerHTML = `${m}m : ${s}s`;
+    _fn('.timer-content .min').innerHTML = m;
+    _fn('.timer-content .sec').innerHTML= s;
     time--;
     if(m==0&&s==0){
         clearInterval(x);
@@ -28,6 +29,15 @@ var x = setInterval(()=>{
     }
 },1000) 
 
+//Find time taken after submitMock()
+    function timeTaken(){
+        var m = parseInt(_fn('.timer-content .min').innerText)*60;
+        var s = parseInt(_fn('.timer-content .sec').innerText);
+        var ms = 3600- (m+s);
+        m = Math.floor(ms/60);
+        s = ms%60;
+        return `${m}m : ${s}s`;
+    }
 
 /*************Render Mock********************/
 const questionBody = JSON.parse(_fn('#mock-area').dataset.mock);
@@ -47,6 +57,9 @@ questionBody.forEach(e=>{
 pos=0;
 loadQuestion(pos);
 function loadQuestion(val){
+    if(val>=questionBody.length){
+        return false;
+    }
     _fn('.qBody').innerHTML= `
     <h5>Question ${questionBody[val].q_id}:</h5>
     <div class="divider grey lighten-3"></div>
@@ -203,14 +216,17 @@ function saveOption(val,option){
                 }
             }
         }
+        
         //fetch post
 
-        const attemptedOBJ= {
+        const attemptedOBJ= {            
+            "mockID": _fn('.mock-header').dataset.mockid,
             "category":_fn('.mock-header').dataset.category,
             "setNo":_fn('.mock-header').dataset.setno,
             "mockName": _fn('.mock-header').dataset.mockname,
             "totalMarks": total,
-            "answerArr":answerArr
+            "answerArr":answerArr,
+            "timeTaken":timeTaken()
         }
 
         fetch('/submit-mock',{
@@ -223,7 +239,7 @@ function saveOption(val,option){
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data);
+            window.location.href = data.redirect;
         })
         .catch(err=>{
             console.log(err)

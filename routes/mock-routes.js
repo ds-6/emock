@@ -20,7 +20,7 @@ router.get('/:id', ensureLogin, async (req, res) => {
         const result = await Mock.findOne({ _id: id });
         const questionBody = result.questionBody;
         if (result.attemptedBy.includes(req.user._id)) {
-            const a_mock = await User.findOne({ _id: req.user.id, 'attemptedMock.setNo': '10' }, { attemptedMock: 1 });
+            const a_mock = await User.findOne({ _id: req.user.id, 'attemptedMock.mockID': `${id}` }, { 'attemptedMock.$': 1 });
             const answerArr = a_mock.attemptedMock[0].answerArr;
             const mock = a_mock.attemptedMock[0];
             let rightArr = []; let wrongArr = []; let unAttemptedArr = [];           

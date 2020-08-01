@@ -76,16 +76,18 @@ app.get('/delete/:id', (req,res)=>{
     })
 })
 
-app.post('/submit-mock', (req,res)=>{
-    const pushMock = {$push:{attemptedMock:req.body}};
-    User.findOneAndUpdate({_id:req.user._id},pushMock)
-    .then(result=>{
-        const category = req.body.category;
-        const setNo = req.body.setNo;
-        const pushID = {$push:{attemptedBy:req.user._id}};
-        Mock.findOneAndUpdate({category:category,setNo:setNo},pushID)
-        .then(result=>{
-        })
-        res.json({msg:'updated'});
-    })
+app.post('/submit-mock',async (req,res)=>{
+    try {
+        const pushMock = { $push: { attemptedMock: req.body } };
+        await User.findOneAndUpdate({ _id: req.user._id }, pushMock);
+        const mockID = req.body.mockID;
+        const userID = { $push: { attemptedBy: req.user._id } };
+        const result = await Mock.findOneAndUpdate({ _id: mockID }, userID);
+        if (result) {
+            res.json({ redirect: `/take-mock/${req.body.mockID}` });
+        }
+
+    } catch (err) {
+        res.render('error/500');
+    }
 })
