@@ -182,12 +182,12 @@ p.status{
     z-index: 99999;
 }
 .menu-ico-wrapper .menu-ico i{
-    transition: transform .5s ease;
+    transition: transform .3s ease;
     transform: rotate(-90deg);
     font-size: 35px;
 }
 .menu-ico-wrapper .menu-ico i.rotate{
-    transition: transform .5s ease;
+    transition: transform .3s ease;
     transform: rotate(90deg);
 }
 .mock-btn-wrapper{
