@@ -81,7 +81,7 @@ function loadQuestion(val){
         <p class="left">
             <button class="btn btn-small grey darken-2 waves-effect waves-light" onclick="if(${val>0}){loadQuestion(${val-1})}">Previous</button>
             <button class="btn btn-small grey darken-2 waves-effect waves-light" onclick="if(${val<qLength-1}){loadQuestion(${val+1})}">Next</button>            
-            <button class="btn btn-small main-color waves-effect waves-light" onclick="saveOption(${val+1})">Save & Next</button>
+            <button class="btn btn-small green darken-2 waves-effect waves-light" onclick="saveOption(${val+1})">Save & Next</button>
         </p>                
         <p class='right'>
             <button class="btn btn-small red darken-2 waves-effect waves-light" onclick="eraseOption(${val+1})">Erase</button>

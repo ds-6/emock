@@ -3,7 +3,7 @@
 
 <section class="section" id="dashboard-content">
     <div class="row container">
-        <h5 class="teal center-align white-text text-darken-3 padding-h z-depth-2">HSSC Online Tests 2020</h5>
+        <h5 class="teal center-align white-text text-darken-3 padding-h z-depth-2">HSSC Online Mocks 2020</h5>
         <% if(mocks){ %>
             <% mocks.forEach(mock=>{ %>
                 <div class="col s12 l3">
@@ -17,13 +17,13 @@
                                 <div class="ribbon ribbon-u"><span>Unattempted</span></div>
                                 <p>Time: 90 Min</p>
                                 <p class="btn-wide">
-                                    <a href="/take-mock/instructions/<%=mock._id%>" class="btn btn-small waves-effect waves-light">Take Test</a>
+                                    <a href="/take-mock/instructions/<%=mock._id%>" class="btn btn-small waves-effect waves-light">Take Mock</a>
                                 </p>                                
                             <% } else{ %>
                                 <div class="ribbon ribbon-a"><span>Attempted</span></div>
                                 <p>Your Score: <%= mock.marks%></p>
                                 <p class="btn-wide">
-                                    <a href="/take-mock/<%=mock._id%>" class="btn btn-small waves-effect waves-light">Take Test</a>
+                                    <a href="/take-mock/<%=mock._id%>" class="btn btn-small waves-effect waves-light">Check Result</a>
                                 </p>
                             <% } %>                         
                                                 

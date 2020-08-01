@@ -1,5 +1,5 @@
 .main-color{
-    background:#468499;
+    background:#333;
 }
 .test-bg-color{
     background:#BBD42D;;
@@ -184,7 +184,7 @@ p.status{
     font-size: 30px;
 }
 .mock-btn-wrapper{
-    border-radius: 25px 25px 0 0;
+    border-radius: 5px 0 0 5px;
 }
 .mock-btn-wrapper.show{
     display: block;
@@ -241,13 +241,14 @@ p.status{
     text-overflow: ellipsis;
 }
 .test-profile{
-    border-radius:25px;
+    border-radius:5px 0 5px 5px;
     height: 50px;
     box-shadow: 0 0 5px rgba(0,0,0,.07);
     font-weight: bold;
 }
 .test-profile img{
     margin-left:-10px;
+    border-radius:5px;
 }
 
 .modal{
