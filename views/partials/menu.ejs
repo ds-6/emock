@@ -19,6 +19,9 @@
         <ul id="dropdown1" class="dropdown-content">
             <li><a href="#">Performance</a></li>
             <li><a href="/auth/logout">Logout</a></li>
+            <% if (user.isAdmin){ %>
+              <li><a href="/dashboard/admin">Admin</a></li>
+            <% }%>
         </ul>
       <% }%>
       
@@ -30,7 +33,7 @@
                 </div>
                 <% if (user){ %>
                     <a href="#user"><img class="circle" src="<%= user.thumbnail %>"></a>
-                <a href="#name"><span class="grey-text text-darken-3 name"><%= user.username %></span></a>
+                    <a href="#name"><span class="grey-text text-darken-3 name"><%= user.username %></span></a>
                 <% }%>                
             </div>
         </li>
@@ -38,6 +41,9 @@
         <% if(user){ %>
             <li><a href="#"><i class="material-icons">assignment</i>Performance</a></li>
             <li><a href="/auth/logout"><i class="material-icons">login</i>Logout</a></li>
+            <% if (user.isAdmin){ %>
+              <li><a href="/dashboard/admin"><i class="material-icons">lock</i>Admin</a></li>
+            <% }%>
         <% } else { %>
             <li><a href="/auth/login"><i class="material-icons">login</i>Login</a></li>
         <% }%>        

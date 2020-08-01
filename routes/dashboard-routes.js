@@ -2,9 +2,13 @@ const router = require('express').Router();
 const {ensureLogin,ensureGuest,ensureAdmin} = require('../middleware/auth');
 const User = require('../models/user');
 const Mock = require('../models/mock');
+require('dotenv').config();
 
 router.get('/',ensureLogin,async (req,res)=>{
     try{
+        if(req.user.googleID==process.env.GOOGLE_ADMIN_ID){
+            req.user.isAdmin = true;
+        }
         let result = await Mock.find();
         for(let e of result){
             if(e.attemptedBy.includes(req.user._id)){                    
