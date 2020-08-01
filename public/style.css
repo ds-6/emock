@@ -176,12 +176,12 @@ p.status{
 .menu-ico-wrapper .menu-ico{
     position: absolute;
     right:0;
-    top:0;
+    top:-18px;
     display: none;
     z-index: 99999;
 }
 .menu-ico-wrapper .menu-ico i{
-    font-size: 30px;
+    font-size: 35px;
 }
 .mock-btn-wrapper{
     border-radius: 5px 0 0 5px;
