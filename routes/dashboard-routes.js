@@ -11,10 +11,14 @@ router.get('/',ensureLogin,async (req,res)=>{
         }
         let result = await Mock.find();
         for(let e of result){
-            if(e.attemptedBy.includes(req.user._id)){                    
+            if(e.attemptedBy.includes(req.user._id)){   
+                console.log(e._id)                 
                 e.status="Attempted";
-                let a_Mock = await User.findOne({_id:req.user._id,"attemptedMock.setNo":e.setNo},{attemptedMock:1});
-                e.marks = a_Mock.attemptedMock[0].totalMarks;       
+                let a_Mock = await User.findOne({_id:req.user._id,"attemptedMock.mockID":`${e._id}`},{'attemptedMock.$':1});
+                console.log(a_Mock)
+                if(a_Mock){
+                    e.marks = a_Mock.attemptedMock[0].totalMarks;
+                }    
             }
             else{
                 e.status = "Unattempted";
@@ -23,6 +27,7 @@ router.get('/',ensureLogin,async (req,res)=>{
          res.render('dashboard',{user:req.user,mocks:result});
            
     }catch(e){
+        console.log(e)
         res.render('error/500');
     }
     //const final = await Promise.all([a_Mock,result]);
