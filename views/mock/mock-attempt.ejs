@@ -1,12 +1,12 @@
 <%- include('../partials/header') %>
-<header class='mock-header test-bg-color'data-mockID="<%= mock._id %>" data-category="<%= mock.category%>" data-category="<%= mock.category%>"data-setNo="<%= mock.setNo%>"data-mockName="<%= mock.mockName%>">
+<header class='mock-header test-bg-color'data-mocktime="<%= mock.mockTime %>" data-mockID="<%= mock._id %>" data-category="<%= mock.category%>" data-category="<%= mock.category%>"data-setNo="<%= mock.setNo%>"data-mockName="<%= mock.mockName%>">
     <div class="container">
         <div class="timer right">
             <div class="col s6 left grey-text text-darken-3">
                 Time Left:
             </div>
             <div class="col s6 grey darken-3 left white-text timer-content">
-                <span class="min">0</span>m : <span class="sec">0</span>s
+                <span class="min">--</span>m : <span class="sec">--</span>s
             </div>
         </div>
     </div>

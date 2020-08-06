@@ -11,7 +11,7 @@ _fn('.menu-ico').addEventListener('click',()=>{
     _fn('.menu-ico i').classList.toggle('rotate');
 })
 /*************Timer Setup********************/
-var time = 3600; //in seconds
+var time = parseInt(_fn('.mock-header').dataset.mocktime)*60 || 3600; //in seconds
 var x = setInterval(()=>{    
     var m = Math.floor(time/60);
     var s = time%60;

@@ -15,7 +15,6 @@ router.get('/',ensureLogin,async (req,res)=>{
                 console.log(e._id)                 
                 e.status="Attempted";
                 let a_Mock = await User.findOne({_id:req.user._id,"attemptedMock.mockID":`${e._id}`},{'attemptedMock.$':1});
-                console.log(a_Mock)
                 if(a_Mock){
                     e.marks = a_Mock.attemptedMock[0].totalMarks;
                 }    

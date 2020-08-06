@@ -18,6 +18,10 @@ const mockSchema = new Schema({
     questionBody:{
         type:Array
     },
+    mockTime:{
+        type:Number,
+        required: true
+    },
     attemptedBy:[{
        type: mongoose.Schema.Types.ObjectId,
         ref: 'User'

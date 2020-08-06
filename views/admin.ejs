@@ -67,20 +67,25 @@
    <h5>Add Mock Sets</h5>
     <form class="col s12" action="/add-mock" method="POST">
       <div class="row">
-        <div class="input-field col s4">
+        <div class="input-field col s6">
           <i class="material-icons prefix">label</i>
           <input id="category" name='category' type="text" class="validate">
           <label for="category">Category</label>
         </div>
-        <div class="input-field col s4">
+        <div class="input-field col s6">
           <i class="material-icons prefix">assignment</i>
           <input id="mockName" name='mockName' type="text" class="validate">
           <label for="mockName">Mock Name</label>
         </div>
-        <div class="input-field col s4">
+        <div class="input-field col s6">
           <i class="material-icons prefix">info</i>
           <input id="setNo" name='setNo' type="text" class="validate">
           <label for="setNo">Set No.</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">alarm</i>
+          <input id="mockTime" name='mockTime' type="number" class="validate" min="10">
+          <label for="mockTime">Time</label>
         </div>
       </div>
       <div class="row">       
