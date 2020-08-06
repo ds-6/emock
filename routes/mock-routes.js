@@ -23,14 +23,10 @@ router.get('/:id', ensureLogin, async (req, res) => {
             const a_mock = await User.findOne({ _id: req.user.id, 'attemptedMock.mockID': `${id}` }, { 'attemptedMock.$': 1 });
             const answerArr = a_mock.attemptedMock[0].answerArr;
             const mock = a_mock.attemptedMock[0];
-            let rightArr = []; let wrongArr = []; let unAttemptedArr = [];           
+            let rightArr = []; let wrongArr = []; let unAttemptedArr = [];         
             for (var i = 0; i < questionBody.length; i++) {
                 const r_a = questionBody[i].r_a;
                 const q = questionBody[i].q_id;
-                if (i >= answerArr.length) {
-                    unAttemptedArr.push(createArr(q,questionBody, i)); //createArr middleware
-                }
-                else {
                     for (var j = 0; j < answerArr.length; j++) {
                         const ans = answerArr[j].answer;
                         const qu = answerArr[j].q_id;
@@ -39,9 +35,11 @@ router.get('/:id', ensureLogin, async (req, res) => {
                         }
                         if (q == qu && r_a != ans) {
                             wrongArr.push(createArr(q,questionBody, i, ans));
-                        }
+                        }                                               
+                    }                     
+                    if(!answerArr.some(e=>e.q_id==q)){
+                        unAttemptedArr.push(createArr(q,questionBody, i));
                     }
-                }
             }
             res.render('mock/mock-attempted', { user: req.user, rA: rightArr, wA: wrongArr, uA: unAttemptedArr, mock: mock });
         }

@@ -31,9 +31,10 @@ var x = setInterval(()=>{
 
 //Find time taken after submitMock()
     function timeTaken(){
+        var totalTime = parseInt(_fn('.mock-header').dataset.mocktime)*60 || 3600;
         var m = parseInt(_fn('.timer-content .min').innerText)*60;
         var s = parseInt(_fn('.timer-content .sec').innerText);
-        var ms = 3600- (m+s);
+        var ms =  totalTime - (m+s);
         m = Math.floor(ms/60);
         s = ms%60;
         return `${m}m : ${s}s`;
@@ -228,7 +229,7 @@ function saveOption(val,option){
             "answerArr":answerArr,
             "timeTaken":timeTaken()
         }
-
+        console.log(attemptedOBJ);
         fetch('/submit-mock',{
             method:'POST',
             credentials: 'include',
