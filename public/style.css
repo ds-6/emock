@@ -72,7 +72,8 @@ sub.sub{
     font-size: 12px;
     padding:5px;
     display: inline-block;
-    background:#468499
+    background:#468499;
+    border-radius:0;
 }
 .card-content .cat:before{
     content: "";

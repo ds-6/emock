@@ -11,8 +11,7 @@ router.get('/',ensureLogin,async (req,res)=>{
         }
         let result = await Mock.find();
         for(let e of result){
-            if(e.attemptedBy.includes(req.user._id)){   
-                console.log(e._id)                 
+            if(e.attemptedBy.includes(req.user._id)){                 
                 e.status="Attempted";
                 let a_Mock = await User.findOne({_id:req.user._id,"attemptedMock.mockID":`${e._id}`},{'attemptedMock.$':1});
                 if(a_Mock){
@@ -34,14 +33,17 @@ router.get('/',ensureLogin,async (req,res)=>{
 })
 
 
-router.get('/admin', (req,res)=>{
-    Mock.find().sort({createdAt:-1})
-    .then(result=>{
-        res.render('admin',{user:req.user,mocks:result})
-    })
-    .catch(err=>{
+router.get('/admin', async (req,res)=>{
+    try{
+        const result= await Mock.find().sort({created:-1});
+        const userCount = await User.collection.countDocuments();
+        if(result){
+            res.render('admin',{user:req.user,mocks:result,userCount})
+        }
+    }catch(err){
+        console.log(err);
         res.render('error/500')
-    });   
+    }  
 })
 
 module.exports = router;
