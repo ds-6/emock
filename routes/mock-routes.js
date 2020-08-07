@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const {ensureLogin,ensureGuest} = require('../middleware/auth');
-const {createArr}= require('../middleware/myFn')
+const {createArr,findRank}= require('../middleware/myFn')
 const Mock = require('../models/mock');
 const User = require('../models/user');
 
@@ -17,7 +17,9 @@ router.get('/instructions/:id',ensureLogin ,async (req,res)=>{
 router.get('/:id', ensureLogin, async (req, res) => {
     try {
         const id = req.params.id;
-        const result = await Mock.findOne({ _id: id });
+        const m= await User.find({'attemptedMock.mockID': id}).select({'attemptedMock.mockID.$': 1 });
+        const rank = findRank(m,req.user._id); //middleware fn
+        const result = await Mock.findOne({ _id: id });        
         const questionBody = result.questionBody;
         if (result.attemptedBy.includes(req.user._id)) {
             const a_mock = await User.findOne({ _id: req.user.id, 'attemptedMock.mockID': `${id}` }, { 'attemptedMock.$': 1 });
@@ -41,7 +43,8 @@ router.get('/:id', ensureLogin, async (req, res) => {
                         unAttemptedArr.push(createArr(q,questionBody, i));
                     }
             }
-            res.render('mock/mock-attempted', { user: req.user, rA: rightArr, wA: wrongArr, uA: unAttemptedArr, mock: mock });
+            //console.log(result)
+            res.render('mock/mock-attempted', { user: req.user, rA: rightArr, wA: wrongArr, uA: unAttemptedArr, mock: mock,rank });
         }
         else {
             res.render('mock/mock-attempt', { user: req.user, mock: result });

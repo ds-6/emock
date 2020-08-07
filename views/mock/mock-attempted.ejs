@@ -15,6 +15,56 @@
             <p>Time Taken: <%= mock.timeTaken%></p>
             <p>Your Score: <%= mock.totalMarks %></p>
 
+        </div>        
+    </div>
+    <div class="row container">
+        <div class="col s6 l3">
+            <div class="card  pink darken-1 grey-text text-lighten-4">
+                <div class="card-content">
+                    <p class="valign-wrapper">
+                        <i class="material-icons">military_tech</i> <span><%=rank.rank %>/<%= rank.totalCandidates %></span>
+                    </p>
+                    <p>
+                        Rank
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col s6 l3">
+            <div class="card blue accent-3 grey-text text-lighten-4">
+                <div class="card-content">
+                    <p class="valign-wrapper">
+                        <i class="material-icons">emoji_events</i> <span><%= rA.length %>/<%=rA.length+wA.length+uA.length %></span>
+                    </p>
+                    <p>
+                        Score
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col s6 l3">
+            <div class="card teal grey-text text-lighten-4">
+                <div class="card-content">
+                    <p class="valign-wrapper">
+                        <i class="material-icons">assignment</i> <span><%=rA.length+wA.length%>/<%=rA.length+wA.length+uA.length %></span>
+                    </p>
+                    <p>
+                        Attempted
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col s6 l3">
+            <div class="card orange darken-4 grey-text text-lighten-4">
+                <div class="card-content">
+                    <p class="valign-wrapper">
+                        <i class="material-icons">album</i> <span> <%= ((rA.length/(rA.length+wA.length))*100).toFixed(2) %>%</span>
+                    </p>
+                    <p>
+                        Accuracy
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -23,9 +73,9 @@
     <div class="row container">
         <div class="col s12">
             <ul id="tabs-swipe-demo" class="tabs z-depth-1">
-                <li class="tab col s4"><a class="active" href="#test-swipe-2">Right</a></li>
-                <li class="tab col s4"><a  href="#test-swipe-1">Wrong</a></li>
-                <li class="tab col s4"><a href="#test-swipe-3">Unattempted</a></li>
+                <li class="tab col s4"><a class="active" href="#test-swipe-2">Right(<%= rA.length %>)</a></li>
+                <li class="tab col s4"><a  href="#test-swipe-1">Wrong(<%= wA.length %>)</a></li>
+                <li class="tab col s4"><a href="#test-swipe-3">Unattempted(<%= uA.length %>)</a></li>
             </ul>
                 <div id="test-swipe-2" class="col s12">
                     <% rA.forEach(e=>{ %>

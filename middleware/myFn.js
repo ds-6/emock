@@ -11,5 +11,24 @@ module.exports= {
             c_a: ans ? ans : null
         }
         return obj;
+    },
+    findRank: function findRank(m,userID){
+        const marksArr = [];
+        var studentMarks;
+        for(const val of m){
+            marksArr.push(val.attemptedMock[0].totalMarks);
+            console.log(val._id)
+            if(val._id==userID){
+                studentMarks = val.attemptedMock[0].totalMarks;
+                console.log(studentMarks)
+            }
+        }
+        marksArr.sort((a,b)=>{
+            return a-b ;
+        })
+        return {
+            rank:(marksArr.indexOf(studentMarks))+1,
+            totalCandidates: marksArr.length
+        };
     }
 }
