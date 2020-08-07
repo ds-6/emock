@@ -18,16 +18,15 @@ module.exports= {
         for(const val of m){
             marksArr.push(val.attemptedMock[0].totalMarks);
             console.log(val._id)
-            if(val._id==userID){
+            if(userID== `${val._id}`){
                 studentMarks = val.attemptedMock[0].totalMarks;
-                console.log(studentMarks)
             }
         }
         marksArr.sort((a,b)=>{
-            return a-b ;
+            return b-a ;
         })
         return {
-            rank:(marksArr.indexOf(studentMarks))+1,
+            rank:marksArr.indexOf(studentMarks)+1,
             totalCandidates: marksArr.length
         };
     }
