@@ -25,10 +25,10 @@ var x = setInterval(()=>{
         instance.open();
     }
     if(m==15&&s==0){
-        M.toast({html: 'Last 15 minutes left!',inDuration:500});
+        M.toast({html: 'Last 15 min left!',inDuration:500});
     }
     if(m==5&&s==0){
-        M.toast({html: 'Last 5 minutes left!',inDuration:500});
+        M.toast({html: 'Hurry, 5 min left!',inDuration:500});
     }
 },1000) 
 
