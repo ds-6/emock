@@ -52,7 +52,6 @@ router.get('/leaderboard/:id',ensureLogin ,async (req,res)=>{
             }
             counter++;
         }
-        console.log(studentArr)
         studentArr.sort((a,b)=>{    //sort rank according to accuracy
             if(a.rank>b.rank){
                 return 1;
@@ -64,7 +63,6 @@ router.get('/leaderboard/:id',ensureLogin ,async (req,res)=>{
                 return -1;
             }
         });
-        console.log(studentArr);
         res.render('mock/leaderboard',{user:req.user,studentArr});
     }catch(err){
         res.render('error/500');
