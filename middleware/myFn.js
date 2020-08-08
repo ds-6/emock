@@ -17,7 +17,6 @@ module.exports= {
         var studentMarks;
         for(const val of m){
             marksArr.push(val.attemptedMock[0].totalMarks);
-            console.log(val._id)
             if(userID== `${val._id}`){
                 studentMarks = val.attemptedMock[0].totalMarks;
             }

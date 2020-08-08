@@ -14,6 +14,64 @@ router.get('/instructions/:id',ensureLogin ,async (req,res)=>{
     
 })
 
+router.get('/leaderboard/:id',ensureLogin ,async (req,res)=>{
+    const id = req.params.id;
+    try{
+        const m= await User.find({'attemptedMock.mockID': id}).select({'attemptedMock.mockID.$': 1 });
+        const studentArr =[];
+        const marksArr = [];
+        var counter = 0;
+        for(const val of m){
+            if(counter<10){
+                marksArr.push(val.attemptedMock[0].totalMarks);
+            }
+            counter++;
+        }
+        marksArr.sort((a,b)=>{
+            return b-a ;
+        })
+        counter = 0 // counter reset
+        for(const val of m){
+            if(counter<10){
+                const user = await User.find({ _id: val._id }).select({ 'username': 1 ,'thumbnail':1});
+                const name = user[0].username;
+                const thumbnail = user[0].thumbnail;
+                var marks = val.attemptedMock[0].totalMarks;
+                var rank = marksArr.indexOf(marks) + 1;
+                var attempt = val.attemptedMock[0].answerArr.length;
+                var totalMarks = val.attemptedMock[0].totalMarks;
+                const obj = {
+                    thumbnail:thumbnail,
+                    rank: rank,
+                    name: name,
+                    attempt: attempt,
+                    totalMarks: totalMarks,
+                    accuracy: ((totalMarks / attempt) * 100).toFixed(2)
+                }
+                studentArr.push(obj);
+            }
+            counter++;
+        }
+        console.log(studentArr)
+        studentArr.sort((a,b)=>{    //sort rank according to accuracy
+            if(a.rank>b.rank){
+                return 1;
+            }
+            if(a.rank==b.rank && a.accuracy>b.accuracy){
+                return 1;
+            }
+            if(a.rank==b.rank && a.accuracy<b.accuracy){
+                return -1;
+            }
+        });
+        console.log(studentArr);
+        res.render('mock/leaderboard',{user:req.user,studentArr});
+    }catch(err){
+        res.render('error/500');
+    }
+    
+})
+
 router.get('/:id', ensureLogin, async (req, res) => {
     try {
         const id = req.params.id;

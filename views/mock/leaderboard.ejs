@@ -1,0 +1,40 @@
+<%- include('../partials/header') %>
+<%- include('../partials/menu') %>
+<section class="section" id="leaderboard">
+    <div class="row container">
+        <h5 class="teal darken-1 grey-text text-lighten-4 center-align padding-h">Leaderboard</h5>
+        <h5>Top 10 Candidates</h5>
+        <div class="col s12">
+            <table class="striped">
+                <thead>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Attempt</th>
+                    <th>Accuracy</th>
+                    <th>Score</th>
+                  </tr>
+                </thead>
+        
+                <tbody>
+                    <% if(studentArr){var r=1 %>
+                     <% studentArr.forEach(e=>{ %>
+                        <tr>
+                            <td><%= r%></td>
+                            <td class="valign-wrapper"><img src="<%= e.thumbnail%>" alt="profile-icon" width="35" class="circle" style="margin-right: 10px;"> <%= e.name%></td>
+                            <td><%= e.attempt%></td>
+                            <td><%= e.accuracy%>%</td>
+                            <td><%= e.totalMarks%></td>
+                        </tr>
+                     <% r++ }) %>                           
+                    <% } else { %>
+                        <tr>
+                            <h5>Data not available !</h5>
+                        </tr>
+                    <% } %>                  
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<%-  include('../partials/footer') %>

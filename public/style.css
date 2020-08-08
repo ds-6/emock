@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
 html{
     font-size: 15px;
 }
 .main-color{
     background:#333;
+}
+.crimson{
+    background: #dc143c;
 }
 .test-bg-color{
     background:#BBD42D;;
@@ -14,8 +18,20 @@ html{
     padding:7px 0;
 }
 .card{
-    border-radius:5px;
+    border-radius:10px;
 }
+.brand-logo{
+    font-family: 'Viga', sans-serif;
+}
+sub.sub{
+    font-size: 10px;
+    color:#dfd9d9;
+    font-weight:400;
+    position: relative;
+    top:10px;
+    left:-18px;
+}
+
 /*******************************/
 #bg-image{
     height:800px;
@@ -54,14 +70,6 @@ html{
     margin-right:12px;
     padding-right:0;
     font-size: 24px;
-}
-sub.sub{
-    font-size: 10px;
-    color:#dfd9d9;
-    font-weight: bold;
-    position: relative;
-    top:10px;
-    left:-10px;
 }
 .card-content{
     position: relative;
@@ -288,6 +296,16 @@ p.status{
 .tabs .tab a.active,.tabs .tab a:focus.active{
     background:#dcf0e8
 }
+/**********Leaderboard*******************/
+section#leaderboard{
+    min-height: 500px;
+}
+a.btn-leaderboard{
+    position: relative;
+    animation: shake 5s ease-out infinite;
+}
+
+
 
 
 @keyframes myAni {
@@ -299,7 +317,16 @@ p.status{
         top:50px;
     }
 }
-
+@keyframes shake {
+    0% {left: 0}
+    1% {left: -3px}
+    2% {left: 5px}
+    3% {left: -8px}
+    4% {left: 8px}
+    5% {left: -5px}
+    6% {left: 3px}
+    7% {left: 0}
+  }
 @media only screen and (max-width: 992px){
     .modal{
         width:50%;
