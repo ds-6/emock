@@ -27,6 +27,9 @@ var x = setInterval(()=>{
     if(m==15&&s==0){
         M.toast({html: 'Last 15 minutes left!',inDuration:500});
     }
+    if(m==5&&s==0){
+        M.toast({html: 'Last 5 minutes left!',inDuration:500});
+    }
 },1000) 
 
 //Find time taken after submitMock()
