@@ -18,6 +18,14 @@ const mockSchema = new Schema({
     questionBody:{
         type:Array
     },
+    fullMark:{
+        type:Number,
+        required:true
+    },
+    negMark:{
+        type:Number,
+        required:true
+    },
     mockTime:{
         type:Number,
         required: true

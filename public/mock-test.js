@@ -209,6 +209,7 @@ function saveOption(val,option){
 /*************Submit Mock********************/
     function submitMock(){
         var total = 0;
+        var wrong = 0;
         for(var i= 0;i<questionBody.length;i++){
             const r_a = questionBody[i].r_a;
             const q = questionBody[i].q_id;
@@ -217,10 +218,12 @@ function saveOption(val,option){
                 const qu= answerArr[j].q_id;
                 if(q==qu && r_a==ans){
                     total++;
+                }else if(q==qu && r_a!=ans){
+                    wrong++;
                 }
             }
         }
-        
+        total = total*parseInt(_fn('.mock-header').dataset.fullmark) - wrong*parseInt(_fn('.mock-header').dataset.negmark)
         //fetch post
 
         const attemptedOBJ= {            

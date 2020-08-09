@@ -165,7 +165,19 @@ p.status{
     border-right-color: #13AA52;
     border-top-color: #13AA52;
   }
-/*******Mock Header********/
+/*******Mock Attempt ********/
+.negMark{
+    position: relative;
+    width:350px;
+}
+.negMark span{
+    position: absolute;
+    top: 18px;
+    right: 0px;
+    padding: 3px 5px;
+    border-radius: 5px;
+    font-size: 12px;
+}
 .mock-header{
     height:50px;    
 }

@@ -24,8 +24,8 @@ mongoose.connect(dbURI,{useNewUrlParser:true,useUnifiedTopology:true,useFindAndM
 
 app.set('view engine','ejs');
 app.use(express.static('public'));
-app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.json({limit:"2mb"}));
+app.use(express.urlencoded({limit:"2mb",extended:true}));
 
 app.use(cookieSession({
     maxAge:24*60*60*1000,

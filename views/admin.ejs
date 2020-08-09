@@ -67,25 +67,35 @@
    <h5>Add Mock Sets</h5>
     <form class="col s12" action="/add-mock" method="POST">
       <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s4">
           <i class="material-icons prefix">label</i>
           <input id="category" name='category' type="text" class="validate">
           <label for="category">Category</label>
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col s4">
           <i class="material-icons prefix">assignment</i>
           <input id="mockName" name='mockName' type="text" class="validate">
           <label for="mockName">Mock Name</label>
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col s4">
           <i class="material-icons prefix">info</i>
           <input id="setNo" name='setNo' type="text" class="validate">
           <label for="setNo">Set No.</label>
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col s4">
           <i class="material-icons prefix">alarm</i>
           <input id="mockTime" name='mockTime' type="number" class="validate" min="10">
           <label for="mockTime">Time</label>
+        </div>
+        <div class="input-field col s4">
+          <i class="material-icons prefix">check_circle_outline</i>
+          <input id="fullMark" name='fullMark' type="number" class="validate" min="0" max="2">
+          <label for="fullMark">Full Mark</label>
+        </div>
+        <div class="input-field col s4">
+          <i class="material-icons prefix">highlight_off</i>
+          <input id="negMark" name='negMark' type="number" class="validate" min="0" max=".50" step=".25">
+          <label for="negMark">Negative Mark</label>
         </div>
       </div>
       <div class="row">       
