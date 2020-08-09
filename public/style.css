@@ -5,9 +5,6 @@ html{
 .main-color{
     background:#333;
 }
-.crimson{
-    background: #dc143c;
-}
 .test-bg-color{
     background:#BBD42D;;
 }
@@ -30,6 +27,19 @@ sub.sub{
     position: relative;
     top:10px;
     left:-18px;
+}
+.tabs .tab a {
+    font-size: 16px;
+    color:#777;
+    font-weight: bold;
+    text-transform:capitalize ;
+}
+.tabs .indicator{
+    background:#13AA52;
+}
+.tabs .tab a.active,.tabs .tab a:focus.active{
+    background:#dcf0e8;
+    color:#13aa52;
 }
 
 /*******************************/
@@ -173,7 +183,7 @@ p.status{
 .negMark span{
     position: absolute;
     top: 18px;
-    right: 0px;
+    right: 40px;
     padding: 3px 5px;
     border-radius: 5px;
     font-size: 12px;
@@ -296,18 +306,7 @@ p.status{
 #result-area .valign-wrapper>i{
     margin-right:10px
 }
-#question-area .tabs .tab a {
-    font-size: 16px;
-    color:#777;
-    font-weight: bold;
-    text-transform:capitalize ;
-}
-.tabs .indicator{
-    background:#13AA52;
-}
-.tabs .tab a.active,.tabs .tab a:focus.active{
-    background:#dcf0e8
-}
+
 /**********Leaderboard*******************/
 section#leaderboard{
     min-height: 500px;
