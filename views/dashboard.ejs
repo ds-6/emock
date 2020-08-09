@@ -6,33 +6,69 @@
 
 <section class="section" id="dashboard-content">
     <div class="row container">
-        <h5 class="teal center-align white-text text-darken-3 padding-h z-depth-2">Online Mocks 2020</h5>
+        <h5 class="teal center-align white-text text-darken-3 padding-h z-depth-2">HSSC Online Mocks</h5>
         <% if(mocks){ %>
             <% mocks.forEach(mock=>{ %>
-                <div class="col s12 l3">
-                    <div class="card">
-                        <div class="card-content">
-                            <h5 class="indigo-text text-darken-3 truncate"><%= mock.mockName%></h5>
-                            <a class="btn cat" href="#"><%= mock.category%></a>
-                            <p>Set No. <%= mock.setNo%></p>                            
-                            <p>Question: <%= mock.questionBody.length %></p>
-                            <% if(mock.status=="Unattempted"){ %>
-                                <div class="ribbon ribbon-u"><span>Unattempted</span></div>
-                                <p>Time: <%= mock.mockTime ? `${mock.mockTime} min` : "90 min" %></p>
-                                <p class="btn-wide">
-                                    <a href="/take-mock/instructions/<%=mock._id%>" class="btn btn-small waves-effect waves-light">Take Mock</a>
-                                </p>                                
-                            <% } else{ %>
-                                <div class="ribbon ribbon-a"><span>Attempted</span></div>
-                                <p>Your Score: <%= mock.marks%></p>
-                                <p class="btn-wide">
-                                    <a href="/take-mock/<%=mock._id%>" class="btn btn-small waves-effect waves-light">Check Result</a>
-                                </p>
-                            <% } %>                         
-                                                
-                        </div>
-                    </div> 
-                </div>
+                <% if(mock.category=="HSSC") {%>
+                    <div class="col s12 l3">
+                        <div class="card">
+                            <div class="card-content">
+                                <h5 class="indigo-text text-darken-3 truncate"><%= mock.mockName%></h5>
+                                <a class="btn cat" href="#"><%= mock.category%></a>
+                                <p>Set No. <%= mock.setNo%></p>                            
+                                <p>Question: <%= mock.questionBody.length %></p>
+                                <% if(mock.status=="Unattempted"){ %>
+                                    <div class="ribbon ribbon-u"><span>Unattempted</span></div>
+                                    <p>Time: <%= mock.mockTime ? `${mock.mockTime} min` : "90 min" %></p>
+                                    <p class="btn-wide">
+                                        <a href="/take-mock/instructions/<%=mock._id%>" class="btn btn-small waves-effect waves-light">Take Mock</a>
+                                    </p>                                
+                                <% } else{ %>
+                                    <div class="ribbon ribbon-a"><span>Attempted</span></div>
+                                    <p>Your Score: <%= mock.marks%></p>
+                                    <p class="btn-wide">
+                                        <a href="/take-mock/<%=mock._id%>" class="btn btn-small waves-effect waves-light">Check Result</a>
+                                    </p>
+                                <% } %> 
+                            </div>
+                        </div> 
+                    </div>
+                <%}%>                
+            <% }) %>     
+        <%} else{ %>
+            <h4>Sorry! No Mocks found.</h4>
+        <% } %> 
+    </div> 
+    <div class="row container">
+        <h5 class="teal center-align white-text text-darken-3 padding-h z-depth-2">SSC Online Mocks</h5>
+        <% if(mocks){ %>
+            <% mocks.forEach(mock=>{ %>
+                <% if(mock.category=="SSC") {%>
+                    <div class="col s12 l3">
+                        <div class="card">
+                            <div class="card-content">
+                                <h5 class="indigo-text text-darken-3 truncate"><%= mock.mockName%></h5>
+                                <a class="btn cat" href="#"><%= mock.category%></a>
+                                <p>Set No. <%= mock.setNo%></p>                            
+                                <p>Question: <%= mock.questionBody.length %></p>
+                                <% if(mock.status=="Unattempted"){ %>
+                                    <div class="ribbon ribbon-u"><span>Unattempted</span></div>
+                                    <p>Time: <%= mock.mockTime ? `${mock.mockTime} min` : "90 min" %></p>
+                                    <p class="btn-wide">
+                                        <a href="/take-mock/instructions/<%=mock._id%>" class="btn btn-small waves-effect waves-light">Take Mock</a>
+                                    </p>                                
+                                <% } else{ %>
+                                    <div class="ribbon ribbon-a"><span>Attempted</span></div>
+                                    <p>Your Score: <%= mock.marks%></p>
+                                    <p class="btn-wide">
+                                        <a href="/take-mock/<%=mock._id%>" class="btn btn-small waves-effect waves-light">Check Result</a>
+                                    </p>
+                                <% } %>                        
+                            </div>
+                        </div> 
+                    </div>
+                <%}%>
+                
             <% }) %>     
         <%} else{ %>
             <h4>Sorry! No Mocks found.</h4>

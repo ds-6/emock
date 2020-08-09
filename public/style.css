@@ -75,6 +75,7 @@ sub.sub{
 .padding-left{
     padding-left: 320px;
 }
+
 /*******Dashboard********/
 #slide-out.sidenav i.material-icons,#slide-out.sidenav i.fa{
     margin-right:12px;
@@ -176,17 +177,10 @@ p.status{
     border-top-color: #13AA52;
   }
 /*******Mock Attempt ********/
-.negMark{
-    position: relative;
-    width:350px;
-}
-.negMark span{
-    position: absolute;
-    top: 18px;
-    right: 40px;
-    padding: 3px 5px;
-    border-radius: 5px;
-    font-size: 12px;
+div.negMark {
+    height:50px;
+    line-height: 50px;
+    padding: 0 6px;
 }
 .mock-header{
     height:50px;    
