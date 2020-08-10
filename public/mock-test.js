@@ -108,7 +108,9 @@ function loadQuestion(val){
     </div>`;
 
    //for checking if answer was checked 
-   isAnswerChecked(val+1);        
+   isAnswerChecked(val+1); 
+   //btnPalleteCounter
+   btnPalleteCounter(qLength);       
 }
 
 /*************If answer was checked for particular question********************/
@@ -251,4 +253,16 @@ function saveOption(val,option){
         .catch(err=>{
             console.log(err)
         })
+    }
+
+/***********btn pallete counter*******************/
+    function btnPalleteCounter(qLength){
+        const gColor = _fnAll('.btns-right .gColor');
+        const oColor = _fnAll('.btns-right .oColor');
+        const iColor = _fnAll('.btns-right .iColor');
+        var wColor = qLength- (gColor.length+iColor.length);
+        _fn('.btn-description .green').innerText = gColor?gColor.length:0;
+        _fn('.btn-description .orange').innerText = oColor?oColor.length:0;
+        _fn('.btn-description .indigo').innerText = iColor?iColor.length:0;
+        _fn('.btn-description .white').innerText = wColor;
     }
