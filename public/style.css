@@ -14,8 +14,15 @@ html{
 .padding-h{
     padding:7px 0;
 }
+.font-bold{
+    font-weight: bold;
+    text-transform: uppercase;
+}
 .card{
     border-radius:6px;
+}
+#dashboard-content .card-content, #main .card-content{
+    padding: 28px;
 }
 .brand-logo{
     font-family: 'Viga', sans-serif;
@@ -195,7 +202,7 @@ div.negMark {
     padding: 0 10px;
 }
 .timer-content{
-    width: 90px;
+   min-width: 100px;
     text-align: center;
 }
 .menu-ico-wrapper{
