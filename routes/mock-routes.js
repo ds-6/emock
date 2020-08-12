@@ -56,13 +56,17 @@ router.get('/leaderboard/:id',ensureLogin ,async (req,res)=>{
             if(a.rank>b.rank){
                 return 1;
             }
+            if(a.rank<b.rank){
+                    return -1;
+                }
             if(a.rank==b.rank && a.accuracy>b.accuracy){
-                return 1;
-            }
-            if(a.rank==b.rank && a.accuracy<b.accuracy){
                 return -1;
             }
+            if(a.rank==b.rank && a.accuracy<b.accuracy){
+                return 1;
+            }
         });
+        console.log(studentArr)
         res.render('mock/leaderboard',{user:req.user,studentArr});
     }catch(err){
         res.render('error/500');
